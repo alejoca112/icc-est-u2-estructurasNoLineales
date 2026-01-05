@@ -12,11 +12,11 @@ public class IntTree {
 
     public void insert(int value) {
         root = insertRecursive(root, value);
-        size++;
     }
 
     private Node<Integer> insertRecursive(Node<Integer> current, int value) {
         if (current == null) {
+            size++;
             return new Node<>(value);
         }
 
@@ -70,13 +70,6 @@ public class IntTree {
     }
 
     public int size(){
-        return sizeRecursive(root);
-    }
-
-    private int sizeRecursive(Node<Integer> node){
-        if (node == null) {
-            return 0;
-        }
-        return size;
+        return this.size;
     }
 }

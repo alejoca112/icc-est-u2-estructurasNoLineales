@@ -20,8 +20,7 @@ public class App {
         tree.posOrder();
         System.out.println("\nInOrder");
         tree.inOrder();
-        System.out.println("\nSize: ");
-        tree.size();
+        System.out.println("\nSize: " + tree.size());
         
     }
 }
