@@ -16,7 +16,7 @@ public class IntTree {
 
     private Node<Integer> insertRecursive(Node<Integer> current, int value) {
         if (current == null) {
-            size++;
+            size++; //Contador ya que aqui es donde en verdad se inserta el nodo
             return new Node<>(value);
         }
 
