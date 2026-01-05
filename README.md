@@ -34,4 +34,4 @@ Evidencia acerca del resultado en Pantalla(Consola)
 
 ### Captura 2 
 Evidencia acerca del formato de codigo para contador Size(private int size)
-![alt text](assets/Code(#2).png)
+![alt text](assets/Code.png)
