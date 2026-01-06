@@ -1,5 +1,6 @@
 package trees;
 
+import models.Persona;
 import nodes.Node;
 
 public class Tree<T extends Comparable<T>> {
@@ -65,7 +66,7 @@ public class Tree<T extends Comparable<T>> {
             return;
         }
         inOrderRecursive(node.getLeft());
-        System.out.print(node.getValue() + " ");
+        System.out.println(node.getValue() + " ");
         inOrderRecursive(node.getRight());
     }
 
@@ -73,4 +74,37 @@ public class Tree<T extends Comparable<T>> {
         return this.size;
     }
 
+    public T search (T value){
+        return searchRecursive(root, value);
+    }
+
+    private T searchRecursive(Node<T> current, T value){
+        if (current == null) {
+            return null;
+        }
+        if (value.compareTo(current.getValue()) < 0) {
+            return searchRecursive(current.getLeft(), value);
+        } else if (value.compareTo(current.getValue()) > 0) {
+            return searchRecursive(current.getRight(), value);
+        }
+        return current.getValue();
+    }
+    public T searchByAge(int edad) {
+        return searchByAgeRecursive(root, edad);
+    }
+
+    private T searchByAgeRecursive(Node<T> current, int edad) {
+        if (current == null) {
+            return null;
+        }
+        Persona persona = (Persona) current.getValue();
+        if(persona.getEdad() == edad){
+            return current.getValue();
+        }
+        if(persona.getEdad() > edad){
+            return searchByAgeRecursive(current.getLeft(), edad);
+        } else {
+            return searchByAgeRecursive(current.getRight(), edad);
+        }
+    }
 }
