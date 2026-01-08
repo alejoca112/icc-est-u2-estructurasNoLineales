@@ -39,6 +39,9 @@ Evidencia acerca del formato de codigo para contador Size(private int size)
 
 
 ## Práctica de Árboles – Implementación Genéricos uso de interfaces Comparable
+
+### Fecha
+2026-1-06
 ### Objetivo
 Implementar un Árbol Binario de Búsqueda genérico en Java usando:
 
@@ -83,3 +86,39 @@ InOrder
 #### Evidencia 2 - Salida por Consola
 **En esta evidencia se muestra la salida por consola de la práctica de Árboles – Implementación Genéricos uso de interfaces Comparable**
 ![alt text](assets/SearchBinaryTree.png)
+
+
+## Práctica de Graphs-- Implementación de Grafos con Strings
+
+### Fecha
+2026-1-08
+### Objetivo
+#### Implementar un Grafo  en Java usando:
+
+Node<T>
+Graph<T>
+### Requisitos técnicos
+Implementar la clase genérica:
+
+class Graph<T>
+Implementar la clase:
+
+class Node<T>
+ 
+#### Implementaciones obligatorias
+Implementación con objetos String
+Entregable
+Repositorio que contenga:
+
+Código fuente actualizado
+Carpeta assets/ con evidencias
+README actualizado con la sección de esta práctica
+
+### Evidencias Obligatorias
+#### Captura 1
+**En esta evidencia se muestra el código fuente de la práctica de Graphs-- Implementación de Grafos con Strings**
+![alt text](assets/CodeGraphs.png)
+
+#### Captura 2
+**En esta evidencia se muestra la salida por consola de la práctica de Graphs-- Implementación de Grafos con Strings**
+![alt text](assets/SearchGraphs.png)
