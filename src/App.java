@@ -70,7 +70,7 @@ public class App {
 
         graph.printGraph();
 
-        List<Node<String>> neighbors = graph.getNeighbors(node1);
+        List<Node<String>> neighbors = graph.getNeighbors(node1);    //Lista para conocer los nodos(neighbors)
         System.out.print("Neighbors de A: ");
         for(Node<String> neighbor : neighbors){
             System.out.print(neighbor + " ");
