@@ -33,10 +33,10 @@ public class App {
         tree.insert(new Persona("Ana", 25));
         tree.insert(new Persona("Pedro", 23));
         tree.insert(new Persona("Luis", 19));
-        // System.out.println("PreOrder");
-        // tree.preOrder();
-        // System.out.println("\nPosOrder");
-        // tree.posOrder();
+        System.out.println("PreOrder");
+        tree.preOrder();
+        System.out.println("\nPosOrder");
+        tree.posOrder();
         System.out.println("\nInOrder");
         tree.inOrder();
         // System.out.println("\nSize: " + tree.size());
