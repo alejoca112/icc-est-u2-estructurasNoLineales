@@ -122,3 +122,42 @@ README actualizado con la sección de esta práctica
 #### Captura 2
 **En esta evidencia se muestra la salida por consola de la práctica de Graphs-- Implementación de Grafos con Strings**
 ![alt text](assets/SearchGraphs.png)
+
+
+## Práctica de Grafos – Recorridos BFS y DFS
+
+### Fecha
+2026-1-20
+
+### Objetivo
+Implementar los algoritmos de recorrido en grafos: Búsqueda en Anchura (BFS) y Búsqueda en Profundidad (DFS) dentro de la estructura genérica, asegurando el correcto manejo de ciclos y orden de visita.
+
+### Requisitos técnicos
+#### Implementación de BFS (Breadth-First Search)
+- Implementar el método `bfs(Node<T> start)`.
+- Utilizar una estructura de datos `Queue` (Cola) para gestionar la frontera de búsqueda.
+- Utilizar un `Set` (específicamente `LinkedHashSet`) para registrar los nodos visitados en orden y evitar bucles infinitos.
+
+#### Implementación de DFS (Depth-First Search)
+- Implementar el método público `dfs(Node<T> start)`.
+- Implementar el método privado recursivo `dfsRecursive`.
+- Utilizar la pila de llamadas (recursividad) para el recorrido en profundidad.
+
+### Implementaciones obligatorias
+#### Grafo de Personas
+- Instanciar un grafo de tipo `Graphs<Persona>`.
+- Agregar nodos con objetos `Persona` (ej. Carlos, Ana, Luis).
+- Configurar conexiones (aristas) tanto dirigidas como no dirigidas para probar la robustez de los algoritmos.
+
+#### Ejecución en App
+- Crear el método `runGraphRecorridos()` para demostrar el funcionamiento.
+- Imprimir en consola el orden de visita resultante partiendo desde diferentes nodos iniciales.
+
+### Evidencias Obligatorias
+#### Captura 1
+**En esta evidencia se muestra el código fuente de los métodos BFS y DFS implementados en la clase Graphs**
+![alt text](assets/CodeGaphsDFSYBFS.png)
+
+#### Captura 2
+**En esta evidencia se muestra la salida por consola de la ejecución de los recorridos BFS y DFS**
+![alt text](assets/EjecucionBFSYDFS.png)
