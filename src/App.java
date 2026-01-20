@@ -8,9 +8,14 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Estudiante: Geovanny Cabrera");
+        System.out.println("\nCorrer IntTree");
         runIntTree();
+        System.out.println("\nCorrer RunTree");
         runTree();
+        System.out.println("\nCorrer RunGraph");
         runGraph();
+        System.out.println("\nCorrer Recorridos De RunGraph");
+        runGraphRecorridos();
     }
 
     private static void runIntTree() {
@@ -76,5 +81,37 @@ public class App {
             System.out.print(neighbor + " ");
         }
         System.out.println();
+    }
+
+    public static void runGraphRecorridos(){
+        Graphs<Persona> grafo = new Graphs<Persona>();
+        Persona pC23 = new Persona("Carlos", 23);
+        Persona pL18 = new Persona("Luis", 18);
+        Persona pA30 = new Persona("Ana", 30);
+        Persona pAn23 = new Persona("Andres", 23);
+        Persona pJ25 = new Persona("Juan", 25);
+        Persona pAn20 = new Persona("Ana", 20);
+
+        grafo.addEdge(new Node<>(pC23), new Node<>(pA30));
+        grafo.addEdge(new Node<>(pC23), new Node<>(pAn23));
+        grafo.addEdge(new Node<>(pC23), new Node<>(pL18));
+        grafo.addEdge(new Node<>(pL18), new Node<>(pJ25));
+        grafo.addEdge(new Node<>(pA30), new Node<>(pAn20));
+
+        grafo.addDirectedEdge(new Node<>(pL18), new Node<>(pAn23));
+        grafo.addDirectedEdge(new Node<>(pC23), new Node<>(pA30));
+        
+
+        grafo.printGraph();
+        System.out.println("\nBFS");
+        grafo.bfs(new Node<>(pC23));
+        System.out.println("\nDFS");
+        grafo.dfs(new Node<>(pC23));
+
+        System.out.println("\nBFS");
+        grafo.bfs(new Node<>(pAn20));
+        System.out.println("\nDFS");
+        grafo.dfs(new Node<>(pAn20));
+
     }
 }
