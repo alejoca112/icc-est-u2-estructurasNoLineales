@@ -3,6 +3,10 @@ import nodes.Node;
 import trees.IntTree;
 import trees.Tree;
 import trees.Graph.Graphs;
+import trees.Graph.PathFinder;
+import trees.Graph.PathResult;
+import trees.Graph.Implementation.BFSPathFinder;
+
 import java.util.List;
 
 public class App {
@@ -113,5 +117,10 @@ public class App {
         System.out.println("\nDFS");
         grafo.dfs(new Node<>(pAn20));
 
+        PathFinder<Persona> finder = new BFSPathFinder<>();
+        PathResult<Persona> result = finder.find(grafo, new Node<>(pC23), new Node<>(pAn20));
+
     }
+
+
 }
