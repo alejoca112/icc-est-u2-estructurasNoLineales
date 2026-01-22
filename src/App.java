@@ -6,6 +6,7 @@ import trees.Graph.Graphs;
 import trees.Graph.PathFinder;
 import trees.Graph.PathResult;
 import trees.Graph.Implementation.BFSPathFinder;
+import trees.Graph.Implementation.DFSPathFinder;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class App {
         System.out.println("\nCorrer RunTree");
         runTree();
         System.out.println("\nCorrer RunGraph");
-        runGraph();
+        //runGraph();
         System.out.println("\nCorrer Recorridos De RunGraph");
         runGraphRecorridos();
     }
@@ -63,7 +64,7 @@ public class App {
         }
     }
 
-    public static void runGraph(){
+    public static void runGraph() {
         Graphs<String> graph = new Graphs<String>();
 
         Node<String> node1 = new Node<String>("A");
@@ -79,32 +80,33 @@ public class App {
 
         graph.printGraph();
 
-        List<Node<String>> neighbors = graph.getNeighbors(node1);    //Lista para conocer los nodos(neighbors)
+        List<Node<String>> neighbors = graph.getNeighbors(node1); // Lista para conocer los nodos(neighbors)
         System.out.print("Neighbors de A: ");
-        for(Node<String> neighbor : neighbors){
+        for (Node<String> neighbor : neighbors) {
             System.out.print(neighbor + " ");
         }
         System.out.println();
     }
 
-    public static void runGraphRecorridos(){
+    public static void runGraphRecorridos() {
         Graphs<Persona> grafo = new Graphs<Persona>();
         Persona pC23 = new Persona("Carlos", 23);
         Persona pL18 = new Persona("Luis", 18);
+        Persona pA23 = new Persona("Andres", 23);
         Persona pA30 = new Persona("Ana", 30);
-        Persona pAn23 = new Persona("Andres", 23);
         Persona pJ25 = new Persona("Juan", 25);
         Persona pAn20 = new Persona("Ana", 20);
+        Persona pM10 = new Persona("Mateo", 10);
+        Persona pJ10 = new Persona("Julio", 10);
 
         grafo.addEdge(new Node<>(pC23), new Node<>(pA30));
-        grafo.addEdge(new Node<>(pC23), new Node<>(pAn23));
-        grafo.addEdge(new Node<>(pC23), new Node<>(pL18));
-        grafo.addEdge(new Node<>(pL18), new Node<>(pJ25));
-        grafo.addEdge(new Node<>(pA30), new Node<>(pAn20));
-
-        grafo.addDirectedEdge(new Node<>(pL18), new Node<>(pAn23));
-        grafo.addDirectedEdge(new Node<>(pC23), new Node<>(pA30));
-        
+        grafo.addDirectedEdge(new Node<>(pC23), new Node<>(pL18));
+        grafo.addDirectedEdge(new Node<>(pC23), new Node<>(pA23));
+        grafo.addDirectedEdge(new Node<>(pL18), new Node<>(pJ25));
+        grafo.addEdge(new Node<>(pL18), new Node<>(pA23));
+        grafo.addDirectedEdge(new Node<>(pAn20), new Node<>(pA30));
+        grafo.addEdge(new Node<>(pA30), new Node<>(pM10));
+        grafo.addEdge(new Node<>(pM10), new Node<>(pJ10));
 
         grafo.printGraph();
         System.out.println("\nBFS");
@@ -117,10 +119,26 @@ public class App {
         System.out.println("\nDFS");
         grafo.dfs(new Node<>(pAn20));
 
+
         PathFinder<Persona> finder = new BFSPathFinder<>();
-        PathResult<Persona> result = finder.find(grafo, new Node<>(pC23), new Node<>(pAn20));
+        PathResult<Persona> result = finder.find(grafo, new Node<>(pC23), new Node<>(pJ10));
+
+        System.out.println("\nOrden BFS");
+        result.getVisitados().forEach(node -> System.out.println(node.getValue() + " "));
+
+        System.out.println("\nRuta Encontrada");
+        result.getPath().forEach(node -> System.out.println(node.getValue() + " "));
+        
+        PathFinder<Persona> finderDFS = new DFSPathFinder<>();
+        PathResult<Persona> resultDFS = finderDFS.find(grafo, new Node<>(pC23), new Node<>(pJ10));
+
+        System.out.println("\nOrden DFS");
+        resultDFS.getVisitados().forEach(node -> System.out.println(node.getValue() + " "));
+
+        System.out.println("\nRuta Encontrada");
+        resultDFS.getPath().forEach(node -> System.out.println(node.getValue() + " "));
 
     }
-
+    
 
 }

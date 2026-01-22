@@ -46,6 +46,7 @@ public class BFSPathFinder<T> implements PathFinder<T> {
                 }
             }
         }
+        return new PathResult<>(visit, List.of());
     }
 
     private List<Node<T>> buildPath(Map<Node<T>, Node<T>> parentMap, Node<T> start, Node<T> end) {
